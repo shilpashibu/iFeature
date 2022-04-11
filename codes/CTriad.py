@@ -57,13 +57,11 @@ def CalculateKSCTriad(sequence, gap, features, AADict):
 
 def CTriad(fastas, gap = 0, **kw):
 	AAGroup = {
-		'g1': 'AGV',
-		'g2': 'ILFP',
-		'g3': 'YMTS',
-		'g4': 'HNQW',
-		'g5': 'RK',
-		'g6': 'DE',
-		'g7': 'C'
+		'g1': 'DE',
+		'g2': 'HRK',
+		'g3': 'CGNQSTY',
+		'g4': 'AFILMPVW'
+		
 	}
 
 	myGroups = sorted(AAGroup.keys())
