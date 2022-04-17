@@ -28,6 +28,23 @@ def Count1(aaSet, sequence):
 		if myCount == 0:
 			code.append(0)
 	return code
+def CalculateKSCTriad(sequence, gap, features, AADict):
+	res = []
+	for g in range(gap+1):
+		myDict = {}
+		for f in features:
+			myDict[f] = 0
+
+		for i in range(len(sequence)):
+			if i+gap+1 < len(sequence) and i+2*gap+2<len(sequence):
+				fea = AADict[sequence[i]] + '.' + AADict[sequence[i+gap+1]]+'.'+AADict[sequence[i+2*gap+2]]
+				myDict[fea] = myDict[fea] + 1
+
+		maxValue, minValue = max(myDict.values()), min(myDict.values())
+		for f in features:
+			res.append((myDict[f] - minValue) / maxValue)
+
+	return res
 
 def CTDC(fastas, **kw):
 	group1 = {
