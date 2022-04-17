@@ -61,6 +61,8 @@ def CTDC(fastas, **kw):
 	for p in property:
 		for g in range(1, len(groups) + 1):
 			header.append(p + '.G' + str(g))
+		for tr in ('Tr1', 'Tr2', 'Tr3'):
+			header.append(p + '.' + tr)
 	encodings.append(header)
 	for i in fastas:
 		name, sequence = i[0], re.sub('-', '', i[1])
