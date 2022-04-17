@@ -123,6 +123,10 @@ def CTDC(fastas, **kw):
 				if (pair[0] in group2[p] and pair[1] in group3[p]) or (pair[0] in group3[p] and pair[1] in group2[p]):
 					c2332 = c2332 + 1
 			code = code + [c1, c2, c3]+[c1221/len(aaPair), c1331/len(aaPair), c2332/len(aaPair)] + Count1(group1[p], sequence) + Count1(group2[p], sequence) + Count1(group3[p], sequence)
+		if len(sequence) < 3:
+			print('Error: for "CTriad" encoding, the input fasta sequences should be greater than 3. \n\n')
+			return 0
+		code = code + CalculateKSCTriad(sequence, 0, features, AADict)
 		encodings.append(code)
 	return encodings
 
