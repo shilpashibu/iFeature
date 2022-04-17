@@ -83,9 +83,7 @@ def CTDC(fastas, **kw):
 			for d in ['0', '25', '50', '75', '100']:
 				header.append(p + '.G' + g + '.res@' + d)
 	encodings.append(header)
-	for f in features:
-		header.append(f)
-	encodings.append(header)
+	
 	
 	for i in fastas:
 		name, sequence = i[0], re.sub('-', '', i[1])
