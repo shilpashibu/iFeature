@@ -8,7 +8,26 @@ def Count(seq1, seq2):
 	for aa in seq1:
 		sum = sum + seq2.count(aa)
 	return sum
+def Count1(aaSet, sequence):
+	number = 0
+	for aa in sequence:
+		if aa in aaSet:
+			number = number + 1
+	cutoffNums = [1, math.floor(0.25 * number), math.floor(0.50 * number), math.floor(0.75 * number), number]
+	cutoffNums = [i if i >=1 else 1 for i in cutoffNums]
 
+	code = []
+	for cutoff in cutoffNums:
+		myCount = 0
+		for i in range(len(sequence)):
+			if sequence[i] in aaSet:
+				myCount += 1
+				if myCount == cutoff:
+					code.append((i + 1) / len(sequence) * 100)
+					break
+		if myCount == 0:
+			code.append(0)
+	return code
 
 def CTDC(fastas, **kw):
 	group1 = {
@@ -61,7 +80,7 @@ def CTDC(fastas, **kw):
 					continue
 				if (pair[0] in group2[p] and pair[1] in group3[p]) or (pair[0] in group3[p] and pair[1] in group2[p]):
 					c2332 = c2332 + 1
-			code = code + [c1, c2, c3]+[c1221/len(aaPair), c1331/len(aaPair), c2332/len(aaPair)]
+			code = code + [c1, c2, c3]+[c1221/len(aaPair), c1331/len(aaPair), c2332/len(aaPair)]+
 		encodings.append(code)
 	return encodings
 
