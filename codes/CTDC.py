@@ -82,7 +82,7 @@ def CTDC(fastas, **kw):
 		for g in ('1', '2', '3'):
 			for d in ['0', '25', '50', '75', '100']:
 				header.append(p + '.G' + g + '.res@' + d)
-	encodings.append(header)
+	#encodings.append(header)
 	for f in features:
 		header.append(f)
 	encodings.append(header)
