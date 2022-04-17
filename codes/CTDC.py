@@ -63,6 +63,9 @@ def CTDC(fastas, **kw):
 			header.append(p + '.G' + str(g))
 		for tr in ('Tr1', 'Tr2', 'Tr3'):
 			header.append(p + '.' + tr)
+		for g in ('1', '2', '3'):
+			for d in ['0', '25', '50', '75', '100']:
+				header.append(p + '.G' + g + '.res@' + d)
 	encodings.append(header)
 	for i in fastas:
 		name, sequence = i[0], re.sub('-', '', i[1])
