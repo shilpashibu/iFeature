@@ -80,7 +80,7 @@ def CTDC(fastas, **kw):
 					continue
 				if (pair[0] in group2[p] and pair[1] in group3[p]) or (pair[0] in group3[p] and pair[1] in group2[p]):
 					c2332 = c2332 + 1
-			code = code + [c1, c2, c3]+[c1221/len(aaPair), c1331/len(aaPair), c2332/len(aaPair)]+
+			code = code + [c1, c2, c3]+[c1221/len(aaPair), c1331/len(aaPair), c2332/len(aaPair)] + Count1(group1[p], sequence) + Count1(group2[p], sequence) + Count1(group3[p], sequence)
 		encodings.append(code)
 	return encodings
 
