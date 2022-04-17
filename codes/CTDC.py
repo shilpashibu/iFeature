@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #_*_coding:utf-8_*_
 
-import re
+import re , math
 
 def Count(seq1, seq2):
 	sum = 0
