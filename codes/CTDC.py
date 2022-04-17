@@ -51,6 +51,22 @@ def CTDC(fastas, **kw):
 		'secondarystruct': 'GNPSD',
 		'solventaccess':   'MSPTHY'
 	}
+	AAGroup = {
+		'g1': 'DE',
+		'g2': 'HRK',
+		'g3': 'CGNQSTY',
+		'g4': 'AFILMPVW'
+		
+	}
+
+	myGroups = sorted(AAGroup.keys())
+
+	AADict = {}
+	for g in myGroups:
+		for aa in AAGroup[g]:
+			AADict[aa] = g
+
+	features = [f1 + '.'+ f2 + '.' + f3 for f1 in myGroups for f2 in myGroups for f3 in myGroups]
 
 	groups = [group1, group2, group3]
 	property = (
@@ -67,6 +83,7 @@ def CTDC(fastas, **kw):
 			for d in ['0', '25', '50', '75', '100']:
 				header.append(p + '.G' + g + '.res@' + d)
 	encodings.append(header)
+	
 	for i in fastas:
 		name, sequence = i[0], re.sub('-', '', i[1])
 		code = [name]
